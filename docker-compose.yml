@@ -93,6 +93,22 @@ services:
             - '/dev/shm:/dev/shm'
         networks:
             - sail
+    nextjs:
+        image: 'node:20'
+        working_dir: /app
+        volumes:
+            - './client:/app'
+        ports:
+            - '3000:3000'
+        command: sh -c 'npm install -g pnpm && pnpm install && pnpm dev'
+        environment:
+            - NODE_ENV=development
+        networks:
+            - sail
+        depends_on:
+            - pgsql
+            - redis
+
 networks:
     sail:
         driver: bridge

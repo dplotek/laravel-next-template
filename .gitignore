@@ -58,3 +58,4 @@ yarn-error.log
 /client/next-env.d.ts
 /.pnpm-store
 /client/.pnpm-store
+.vercel
